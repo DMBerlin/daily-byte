@@ -15,6 +15,7 @@ const commands = [
 
 function cleaner (params)  {
     const map = [[0,0]];
+    // O(n)
     for (let param of params) {
         let [x, y] = map[map.length-1];
         if (param === 'U') {
@@ -31,6 +32,7 @@ function cleaner (params)  {
             map.push([x, y]);
         }
     }
+    
     return map[0].toString() === map[map.length-1].toString()
 }
 
