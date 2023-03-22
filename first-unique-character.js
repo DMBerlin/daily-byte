@@ -14,10 +14,12 @@
 function firstUnique(chars) {
     let map = {}
     
+    // O(n)
     for (let char of chars) {
         map[char] ? map[char]++ : map[char] = 1;
     }
     
+    // O(n)
     for (let i = 0; i < chars.length; i++) {
         if (map[chars[i]] === 1) return i;
     }
