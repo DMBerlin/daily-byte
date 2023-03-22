@@ -16,6 +16,8 @@ function longest (prefixes) {
     let len = 0;
     let big = sorted[sorted.length - 1];
     let small = sorted[0];
+
+    // O(n)
     for (let s = 0; s < small.length; s++) {
         let v = small[s];
         let a = small.indexOf(v);
@@ -26,6 +28,8 @@ function longest (prefixes) {
             break;
         }
     }
+
+    // O(n)
     return small.slice(0, len);
 };
 
