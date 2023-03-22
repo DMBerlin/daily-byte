@@ -12,8 +12,11 @@
 
 function twoSum (nums, k) {
     let map = new Map();
+
+    // O(n)
     for (let n = 0; n < nums.length; n++) {
         let target = k - nums[n];
+        // O(1)
         if (map.has(target)) {
             return true;
         } else {
