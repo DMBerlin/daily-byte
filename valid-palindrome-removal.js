@@ -14,6 +14,7 @@
 function validPalindrome(s,left = 0, right = s.length - 1, removedChars = 0) {
     if (removedChars > 1) return false;
 
+    // O(n)
     while(left < right){
         if (s[left] !== s[right])
             return validPalindrome(s, left+1, right, removedChars+1) || validPalindrome(s, left, right-1, removedChars+1);
