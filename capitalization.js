@@ -12,11 +12,11 @@
 
 
 function isCapitalized (word) {
-
     let stack = [];
-
+    // O(n)
     for (let n = 0; n < word.length; n++) {
         if (word[n] === word[n].toUpperCase()) {
+            // O(1)
             stack.push(word[n]);
             if (n > 0 && n < word.length && word[n-1].toUpperCase() !== word[n-1]) {
                 return false;
