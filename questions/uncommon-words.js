@@ -43,7 +43,7 @@ function uncommon(first, second) {
   { first: ["the", "quick"], second: ["brow", "fox"] },
   { first: ["the", "tortoise", "beat", "the", "haire"], second: ["the", "tortoise", "lost", "to", "the", "haire"] }, 
   { first: ["copper", "coffe", "pot"], second: ["hot", "coffe", "pot"] },
-].forEach((test) => console.log(test, uncommon(test.first, test.second)));
+].forEach((test) => console.log(uncommon(test.first, test.second)));
 
 /**
  * Time: O(n) + O(n) + O(n) = O(n)
