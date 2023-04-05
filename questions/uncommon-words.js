@@ -13,9 +13,11 @@
  */
 
 function uncommon(first, second) {
+  // O(n)
   const words = [...first, ...second];
   const obj = {};
   
+  // O(n)
   for (let word of words) {
     if (obj[word]) {
       obj[word] += 1;
@@ -24,8 +26,10 @@ function uncommon(first, second) {
     }    
   }
   
+  // O(m)
   const output = [];
 
+  // O(n)
   for (let key in obj) {
     if (obj[key] === 1) {
       output.push(key);
@@ -40,3 +44,8 @@ function uncommon(first, second) {
   { first: ["the", "tortoise", "beat", "the", "haire"], second: ["the", "tortoise", "lost", "to", "the", "haire"] }, 
   { first: ["copper", "coffe", "pot"], second: ["hot", "coffe", "pot"] },
 ].forEach((test) => console.log(test, uncommon(test.first, test.second)));
+
+/**
+ * Time: O(n) + O(n) + O(n) = O(n)
+ * Space: O(m)
+ */
