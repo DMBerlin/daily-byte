@@ -12,7 +12,7 @@
  * 
  */
 
-const LinkedList = require('./utils/linked-list/list');
+const LinkedList = require('./utils/linked-list/list.class');
 
 /**
  * @param {LinkedList} a
