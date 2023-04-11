@@ -6,9 +6,9 @@
  * 
  * Ex: Given the following lists...
  * 
- * list1 = 1->2->3, list2 = 4->5->6->null, return 1->2->3->4->5->6->null
- * list1 = 1->3->5, list2 = 2->4->6->null, return 1->2->3->4->5->6->null
- * list1 = 4->4->7, list2 = 1->5->6->null, return 1->4->4->5->6->7->null
+ * a = 1->2->3, b = 4->5->6->null, return 1->2->3->4->5->6->null
+ * a = 1->3->5, b = 2->4->6->null, return 1->2->3->4->5->6->null
+ * a = 4->4->7, b = 1->5->6->null, return 1->4->4->5->6->7->null
  * 
  */
 
@@ -19,8 +19,27 @@ const LinkedList = require('./utils/linked-list/list.class');
  * @param {LinkedList} b
  */
 function merge (a, b) {
-  a.printAll();
-  b.printAll();
+  let head = new LinkedList();
+  let tail = head;
+
+  // Iterate over the two lists and append values to the result list.
+  while (a && b) {
+    if (a.data < b.data) {
+        tail.next = a;
+        a = a.next;
+    } else {
+        tail.next = b;
+        b = b.next;
+    }        
+    tail = tail.next;
+  }
+  
+  // Check if there is left over nodes on any list.
+  // Append it to the end of the result list.
+  if (a) tail.next = a;
+  if (b) tail.next = b;
+  
+  return head.next;
 }
 
 [
@@ -32,6 +51,6 @@ function merge (a, b) {
     merge(
       LinkedList.createFromArray(test.a),
       LinkedList.createFromArray(test.b)
-    )
+    ).printAll()
   )
 );
