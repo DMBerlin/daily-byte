@@ -128,6 +128,15 @@ class LinkedList {
         }
     }
 
+    getNodeByValue (head, value) {
+        if (!head) return null;
+        while (head) {
+            if (head.data === value) return head;
+            head = head.next;
+        }
+        return null;
+    }
+
     buildFromArray (values) {
         values.forEach(value => this.add(value));
     }
@@ -138,7 +147,20 @@ class LinkedList {
         while (node) {
             if (!node.next) {
                 node['next'] = dummy;
-                return;
+                return this;
+            }
+            node = node.next;
+        }
+        return this;
+    }
+
+    encycleListAt (head, value) {
+        let dummy = head.getNodeByValue(head.head ,value);
+        let node = head.head;
+        while (node) {
+            if (!node.next) {
+                node['next'] = dummy;
+                return this;
             }
             node = node.next;
         }
@@ -152,10 +174,11 @@ class LinkedList {
     static createFromArray (arr, options) {
         let head = new LinkedList();
         head.buildFromArray(arr, options);
-        if (options && options.circular) {
-            head.encycleList(head);
+        if (options && options.circular && options.encycleListAt === undefined) {
+            return head.encycleList(head);
+        } else if (options && typeof options.encycleListAt === 'number') {
+            return head.encycleListAt(head, options.encycleListAt);
         }
-
         return head;
     }
 }
