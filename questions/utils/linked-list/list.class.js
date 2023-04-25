@@ -132,9 +132,30 @@ class LinkedList {
         values.forEach(value => this.add(value));
     }
 
-    static createFromArray (arr) {
+    encycleList (head) {
+        let dummy = head;
+        let node = head;
+        while (node) {
+            if (!node.next) {
+                node['next'] = dummy;
+                return;
+            }
+            node = node.next;
+        }
+        return this;
+    }
+
+    getHead () {
+        return this.head;
+    }
+
+    static createFromArray (arr, options) {
         let head = new LinkedList();
-        head.buildFromArray(arr);
+        head.buildFromArray(arr, options);
+        if (options && options.circular) {
+            head.encycleList(head);
+        }
+
         return head;
     }
 }
