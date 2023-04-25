@@ -12,6 +12,8 @@
  * 
  */
 
+const expect = require('./utils/expect/string.expect')
+
 function validAnagram(s, t) {
     if (t.length !== s.length) return false;
     const counts = {};
