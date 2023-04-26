@@ -24,8 +24,11 @@ function validCharacters (brackets) {
   for (const bracket of brackets) {
     if (bracket in closingBracketFor) {
       openingBrackets.push(bracket);
-    } else if (closingBracketFor[openingBrackets.pop()] !== bracket) {
-      return false;
+    } else {
+      const openingBracket = openingBrackets.pop();
+      if (closingBracketFor[openingBracket] !== bracket) {
+        return false;
+      }
     }
   }
   
