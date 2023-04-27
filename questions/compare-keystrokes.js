@@ -15,7 +15,6 @@ function format (characters) {
   // O(n)
   characters = characters.split('');
   const output = [];
-  let n = 0;
   // O(n)
   for (let char of characters) {
     if (char === '#') {
