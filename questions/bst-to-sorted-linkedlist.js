@@ -40,10 +40,6 @@
  *   6
  */
 
-const LinkedList = require('../utils/linked-list/list.class');
-
-const list = new LinkedList();
-
 function flatten (root) {
   // Morris Traversal
   let curr = root;
